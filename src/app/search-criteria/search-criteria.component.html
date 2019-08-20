@@ -4,6 +4,9 @@
     <input type="text" name="searchTerm" ngModel>
     <label for="rating">Rating</label>
     <input type="text" name="rating" ngModel>
+    <select name="genre" ngModel>
+        <option *ngFor='let genre of this.genre' value="{{genre.id}}">{{genre.name}}</option>
+    </select>
     <label for="genre">Genre</label>
     <input type="text" name="genre" ngModel>
     <label for="length-time">Movie Length</label>
