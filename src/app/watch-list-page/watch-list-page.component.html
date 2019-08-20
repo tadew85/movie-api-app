@@ -1,8 +1,8 @@
-<form #form="ngForm" (submit)="getData(form.value.searchTerm)">
-    <input type="text"name="searchTerm" ngModel />
-</form>
 
+<h1>Watchlist</h1>
+<ul>
+    <li >
+        <img src="" alt="movie-img"><p></p><button (click)="">Remove</button>
+    </li>
+</ul>
 
-<div *ngFor="let gif of giphyData">
-    <img src="{{gif.images.fixed_width.url}}">
-</div>

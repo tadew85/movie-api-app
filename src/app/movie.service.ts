@@ -1,9 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
-import { AppComponent } from './app.component';
-import { DisplayComponent } from './display/display.component';
+
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+
 
 @NgModule({
   declarations: [
@@ -16,4 +16,15 @@ import { DisplayComponent } from './display/display.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+
+export class MovieService {
+
+  constructor(private http: HttpClient) { }
+
+getMovieData(searchTerm: string): Observable<any>{
+  return this.http.get(`https://api.themoviedb.org/3/movie/550?api_key=db461ada2c7443f6ccd1e6ad86adde8d&q=${searchTerm}&limit=25&offset=0&rating=G&lang=en`)
+}
+
+}
+
