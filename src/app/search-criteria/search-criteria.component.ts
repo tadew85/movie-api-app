@@ -12,8 +12,13 @@ movieData: any;
   ngOnInit() {
   }
   getData(searchTerm: string):void{
-    this.movieService.getMovieData(searchTerm).subscribe(response=>{this.movieData = response.data; console.log(this.movieData);
+    this.movieService.getMovieData(searchTerm).subscribe(response=>{
+        this.movieData = response;
+        console.log(response.results) 
     });
+  }
+  toggleMovielist(){
+
   }
 
 }

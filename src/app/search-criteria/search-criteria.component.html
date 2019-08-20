@@ -1,24 +1,19 @@
+<h1>STM Flix</h1>
 <form #form="ngForm" (submit)="getData(form.value.searchTerm)">
     <label for="searchTerm">Search</label>
     <input type="text" name="searchTerm" ngModel>
     <label for="rating">Rating</label>
-    <select name="rating" id="rating">
-        <option value="G">G</option>
-        <option value="PG">PG</option>
-        <option value="PG-13">PG-13</option>
-        <option value="R">R</option>
-    </select>
+    <input type="text" name="rating" ngModel>
     <label for="genre">Genre</label>
-    <select name="genre" id="genre">
-        <option value="action">Action</option>
-        <option value="adventure">Adventure</option>
-        <option value="comedy">Comedy</option>
-        <option value="horror">Horror</option>
-    </select>
+    <input type="text" name="genre" ngModel>
+    <label for="length-time">Movie Length</label>
     <input type="range" name="length-time" min="30" max="240" step="15" value="100">
-    <button (click)="">Add to Watchlist</button>
+    <button (click)="toggleMovielist()">Go to Watchlist</button>
 </form>
-
-<!-- <div *ngFor="let move of movieData">
-    
+<!-- <div>
+    <app-movie-list ></app-movie-list>
+</div>
+<div>
+    <app-watch-list-page ></app-watch-list-page>
 </div> -->
+
