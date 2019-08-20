@@ -1,10 +1,23 @@
+
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    WatchListPageComponent
+  ],
+  imports: [
+    BrowserModule, HttpClientModule, FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
+
+
 export class MovieService {
 
   constructor(private http: HttpClient) { }
@@ -14,3 +27,4 @@ getMovieData(searchTerm: string): Observable<any>{
 }
 
 }
+

@@ -4,6 +4,10 @@
 
 export const environment = {
   production: false
+  placeholderImg: `https://via.placeholder.com/500x281/0000FF?text=STM_Flix`,
+  imgUrl: `https://image.tmdb.org/t/p/w500`,
+  API_BASE: 'https://api.themoviedb.org/3/',
+  API_KEY: 'e98136de756705459104be0a2c27f514'
 };
 
 /*
