@@ -24,11 +24,15 @@ export class MovieService {
 
     return this.http.get(url, { params });
   }
-  get(id){
-
+  getById(id: number): Observable<any>{
+    const url = `${this.BASE_URL}/movie/${id}`;
+    const params = new HttpParams()
+      .set("api_key", "db461ada2c7443f6ccd1e6ad86adde8d")
+      .set("language", "en-US")
+      return this.http.get(url, { params })
   }
   addToWatchlist(){
-    
+
   }
   goToWatchlist(){
     this.router.navigate(["watch-list"]);
