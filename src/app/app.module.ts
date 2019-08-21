@@ -8,13 +8,15 @@ import { WatchListPageComponent } from './watch-list-page/watch-list-page.compon
 import { FormsModule } from "@angular/forms";
 // import { IgxSliderModule } from 'igniteui-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchCriteriaComponent,
     MovieListComponent,
-    WatchListPageComponent
+    WatchListPageComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

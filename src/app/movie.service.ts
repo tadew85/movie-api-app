@@ -1,21 +1,40 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Movie } from "../app/interface";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class MovieService {
+  favorites: Movie[] = [];
+  private readonly BASE_URL: string = 'https://api.themoviedb.org/3'
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  search(genre: string = "", rating: number = 0, duration: number = Number.MAX_SAFE_INTEGER): Observable<any>{
+    const url = `${this.BASE_URL}/discover/movie`;
+    const params = new HttpParams()
+      .set("api_key", "db461ada2c7443f6ccd1e6ad86adde8d")
+      .set("language", "en-US")
+      .set("vote_average.gte", rating.toString())
+      .set("with_genres", genre)
+      .set("with_runtime.lte", duration.toString());
 
-// getMovieData(searchTerm: string): Observable<any>{
-//   return this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=9c6718c4188fd2951c126ac0fbe2c65f&query=${searchTerm}`)
-// }
-getGenre(genre: string): Observable<any> {
-  return this.http.get(
-    `https://api.themoviedb.org/3/genre/movie/list?api_key=db461ada2c7443f6ccd1e6ad86adde8d&language=en-US`
-  );
-  console.log(genre);
-}
+
+    return this.http.get(url, { params });
+  }
+  get(id){}
+  addToWatchlist(){
+
+  }
+  goToWatchlist(){}
+
+  getGenre(genre: string): Observable<any> {
+    const url = `${this.BASE_URL}/genre/movie/list`;
+    const params = new HttpParams()
+      .set("api_key", "db461ada2c7443f6ccd1e6ad86adde8d")
+      .set("language", "en-US");
+
+    return this.http.get(url, { params });
+  }
 }

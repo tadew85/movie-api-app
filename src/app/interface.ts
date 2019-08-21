@@ -1,5 +1,5 @@
-export interface Interface {
-    image: string;
-    title: string;
-    description: string;
+export interface Movie {
+    rating: number;
+    duration: number;
+    genre: string;
 }
