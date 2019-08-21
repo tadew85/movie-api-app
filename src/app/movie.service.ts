@@ -1,16 +1,40 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Movie } from "../app/interface";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class MovieService {
+  favorites: Movie[] = [];
+  private readonly BASE_URL: string = 'https://api.themoviedb.org/3'
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  search(genre: string = "", rating: number = 0, duration: number = Number.MAX_SAFE_INTEGER): Observable<any>{
+    const url = `${this.BASE_URL}/discover/movie`;
+    const params = new HttpParams()
+      .set("api_key", "db461ada2c7443f6ccd1e6ad86adde8d")
+      .set("language", "en-US")
+      .set("vote_average.gte", rating.toString())
+      .set("with_genres", genre)
+      .set("with_runtime.lte", duration.toString());
 
-getMovieData(searchTerm: string): Observable<any>{
-  return this.http.get(`https://api.themoviedb.org/3/movie/550?api_key=db461ada2c7443f6ccd1e6ad86adde8d&q=${searchTerm}&limit=25&offset=0&rating=G&lang=en`)
-}
 
+    return this.http.get(url, { params });
+  }
+  get(id){}
+  addToWatchlist(){
+
+  }
+  goToWatchlist(){}
+
+  getGenre(genre: string): Observable<any> {
+    const url = `${this.BASE_URL}/genre/movie/list`;
+    const params = new HttpParams()
+      .set("api_key", "db461ada2c7443f6ccd1e6ad86adde8d")
+      .set("language", "en-US");
+
+    return this.http.get(url, { params });
+  }
 }

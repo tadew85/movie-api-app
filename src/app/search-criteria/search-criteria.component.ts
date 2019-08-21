@@ -6,16 +6,16 @@ import { MovieService } from "../movie.service"
   styleUrls: ['./search-criteria.component.css']
 })
 export class SearchCriteriaComponent implements OnInit {
-movieData: any;
+
+
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-  }
-  getData(searchTerm: string):void{
-    this.movieService.getMovieData(searchTerm).subscribe(response=>{this.movieData = response.data; console.log(this.movieData);
-    });
-  }
+    this.movieService.search("", 9, 90).subscribe(response=>{
+      console.log(response);
+    })
 
+  }
 }
 
 
