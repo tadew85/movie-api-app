@@ -32,7 +32,7 @@ export class MovieService {
       return this.http.get(url, { params })
   }
   addToWatchlist(){
-
+    
   }
   goToWatchlist(){
     this.router.navigate(["watch-list"]);

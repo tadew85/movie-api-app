@@ -16,7 +16,7 @@ export class SearchCriteriaComponent implements OnInit {
     })
   }
   getWatchlist(){
-    
+    this.movieService.goToWatchlist();
   }
 }
 

@@ -6,7 +6,6 @@ import { SearchCriteriaComponent } from './search-criteria/search-criteria.compo
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { WatchListPageComponent } from './watch-list-page/watch-list-page.component';
 import { FormsModule } from "@angular/forms";
-// import { IgxSliderModule } from 'igniteui-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsComponent } from './details/details.component';
 import { Routes, RouterModule } from "@angular/router";
@@ -30,7 +29,6 @@ const approutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    // IgxSliderModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(approutes)
   ],
