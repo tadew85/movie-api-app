@@ -14,7 +14,9 @@ export class SearchCriteriaComponent implements OnInit {
     this.movieService.search("", 9, 90).subscribe(response=>{
       console.log(response);
     })
-
+  }
+  getWatchlist(){
+    
   }
 }
 

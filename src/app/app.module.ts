@@ -9,6 +9,14 @@ import { FormsModule } from "@angular/forms";
 // import { IgxSliderModule } from 'igniteui-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsComponent } from './details/details.component';
+import { Routes, RouterModule } from "@angular/router";
+
+const approutes: Routes = [
+  { path: "watch-list", component: WatchListPageComponent },
+  { path: "details", component: DetailsComponent },
+  { path: "search-criteria", component: SearchCriteriaComponent },
+  { path: "**", redirectTo: "search-criteria" }
+];
 
 @NgModule({
   declarations: [
@@ -23,7 +31,8 @@ import { DetailsComponent } from './details/details.component';
     HttpClientModule,
     FormsModule,
     // IgxSliderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(approutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
